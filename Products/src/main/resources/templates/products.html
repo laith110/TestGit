@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список товаров</title>
+    <style>
+        body{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Verdana;
+        }
+        .body{
+            box-shadow: 3px 3px 3px 10px grey;
+            width: 500px;
+            height: 100vh;
+            text-align: left;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: rgba(239, 239, 239, 0.97);
+        }
+        .a{
+            text-decoration: none;
+            color: black;
+            border: 1px solid orange;
+            text-align: center;
+            width: 150px;
+            padding: 20px;
+            display: block;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+        .a:hover{
+            background-color: darkorange;
+            box-shadow: 3px 3px 3px orange;
+            color: white;
+            transition: .5s;
+        }
+        .a1{
+            text-decoration: none;
+            color: black;
+
+        }
+        .a1:hover{
+            padding: 5px;
+            color: white;
+            background-color: orange;
+        }
+
+    </style>
+</head>
+<body>
+<div class="body">
+<div th:each="products:${products}">
+    <a class="a1" th:href="@{/products/{id}(id=${products.getId()})}" th:text="${products.getName()}"></a><hr color="orange">
+</div><br>
+<a class="a" href="/products/add">Добавление товара</a>
+</div>
+</body>
+</html>

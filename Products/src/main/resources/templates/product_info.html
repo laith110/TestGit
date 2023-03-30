@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о продукте</title>
+</head>
+<style>
+    body{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Verdana;
+
+    }
+    .body{
+        box-shadow: 3px 3px 3px 10px grey;
+        width: 500px;
+        height: 100vh;
+        text-align: left;
+        padding: 20px;
+        margin: 20px auto;
+        background-color: rgba(238, 238, 238, 0.97);
+    }
+    .a{
+        text-decoration: none;
+        color: black;
+        border: 1px solid orange;
+        text-align: center;
+        width: 150px;
+        padding: 20px;
+        display: block;
+        margin: 0 auto;
+        margin: 20px;
+        font-weight: 600;
+        float: left;
+    }
+    .a:hover{
+        background-color: darkorange;
+        box-shadow: 3px 3px 3px orange;
+        color: white;
+        transition: .5s;
+    }
+
+
+
+
+</style>
+<body>
+<div class="body">
+    <table  bordercolor="orange" align="center" cellspacing="0"
+           border="1px" cellpadding="5px"
+    >
+        <tr>
+            <td >Товар №</td>
+            <td>Наименование</td>
+            <td>Цена</td>
+            <td>Вес</td>
+            <td>Поставщик</td>
+        </tr>
+        <tr>
+            <td ><p th:text=" ${products.getId()}"></p></td>
+            <td><p th:text=" ${products.getName()}"></p></td>
+            <td><p th:text="${products.getPrice()}"></p>
+            </td>
+            <td><p th:text="${products.getWeight()}"></p>
+            </td>
+            <td><p th:text=" ${products.getProvider()}"></p>
+            </td>
+        </tr>
+    </table>
+<!--<p th:text="'Товар №'+ ${products.getId()}"></p>-->
+<!--<p th:text="'Наименование: '+ ${products.getName()}"></p>-->
+<!--<p th:text="'Цена: '+ ${products.getPrice()}"></p>-->
+<!--<p th:text="'Вес: '+ ${products.getWeight()}"></p>-->
+<!--<p th:text="'Поставщик: '+ ${products.getProvider()}"></p>-->
+<a class="a" th:href="@{/products/edit/{id}(id=${products.getId()})}">Редактирование товаров: </a>
+<a class="a" th:href="@{/products/delete/{id}(id=${products.getId()})}">Удаление  товаров: </a>
+</div>
+</body>
+</html>
